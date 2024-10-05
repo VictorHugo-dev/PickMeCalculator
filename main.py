@@ -6,7 +6,7 @@ class Bot(commands.Bot):
 
     def __init__(self):
         # Set the token and channel you want the bot to join
-        super().__init__(token='ddch1kfwybbh11ogadd0n88o3xsytk', prefix='!', initial_channels=['oMeiaUm', 'VictorHugor'])
+        super().__init__(token='AUTH_KEY', prefix='!', initial_channels=['oMeiaUm', 'VictorHugor'])
 
     async def event_ready(self):
         print(f'Logged in as | {self.nick}')
