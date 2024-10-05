@@ -2,7 +2,6 @@ import random
 import asyncio
 from twitchio.ext import commands
 
-# Initialize the bot
 class Bot(commands.Bot):
 
     def __init__(self):
@@ -40,15 +39,10 @@ class Bot(commands.Bot):
                 
             await ctx.send(f'@{sender}, sua porcentagem de pick me é: {pickme_percentage}%')
 
-# Setup event loop if none exists
-if __name__ == "__main__":
+# Define a function to start the bot with asyncio.run()
+async def main():
     bot = Bot()
-    
-    # Check if there is an existing event loop and run the bot
-    try:
-        asyncio.get_event_loop().run_until_complete(bot.run())
-    except RuntimeError:
-        # If no event loop is available, create a new one
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(bot.run())
+    await bot.start()
+
+if __name__ == "__main__":
+    asyncio.run(main())
